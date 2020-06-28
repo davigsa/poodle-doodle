@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { Provider } from "react-redux";
+import axios from "axios";
 
 //import globalCSS
 import { GlobalStyle } from "./styles/globalStyles";
@@ -14,6 +15,9 @@ import signup from "./pages/signup";
 import feed from "./pages/feed";
 import user from "./pages/user";
 import Error from "./pages/404";
+
+axios.defaults.baseURL =
+  "https://us-central1-functions-bbfa2.cloudfunctions.net/api";
 
 function Routes() {
   return (

@@ -7,11 +7,7 @@ import {
   SIGNUP_USER,
   GET_USER_BY_ID,
 } from "../types/userTypes";
-import {
-  SET_LOADING_FALSE,
-  SET_LOADING_TRUE,
-  SET_ERRORS,
-} from "../types/uiTypes";
+import { SET_LOADING_FALSE, SET_LOADING_TRUE } from "../types/uiTypes";
 
 export function getUserDetails(userHandle) {
   return (dispatch) => {
@@ -21,7 +17,6 @@ export function getUserDetails(userHandle) {
         dispatch({ type: GET_USER_DETAILS, payload: res.data });
       })
       .catch((err) => {
-        dispatch({ type: SET_ERRORS, payload: err.response.data });
         return console.log(err);
       });
   };
@@ -43,7 +38,6 @@ export function signIn(userData, history) {
       })
       .catch((err) => {
         dispatch({ type: SET_LOADING_FALSE });
-        dispatch({ type: SET_ERRORS, payload: err.response.data });
         console.error(err);
       });
   };
@@ -65,7 +59,6 @@ export function signUp(userData, history) {
       })
       .catch((err) => {
         dispatch({ type: SET_LOADING_FALSE });
-        dispatch({ type: SET_ERRORS, payload: err.response.data });
         console.error(err);
       });
   };
@@ -78,8 +71,6 @@ export function getUserById(userId) {
       .then((res) => {
         dispatch({ type: GET_USER_BY_ID, payload: res.data });
       })
-      .catch((err) => {
-        dispatch({ type: SET_ERRORS, payload: err.response.data });
-      });
+      .catch((err) => {});
   };
 }

@@ -13,6 +13,7 @@ import mestre from "../../assets/images/mestre.png";
 //import components
 import Post from "../../components/Post";
 import Perfil from "../../components/Perfil";
+import Loading from "../../components/Loading";
 
 //import redux stuff
 import { useDispatch, useSelector } from "react-redux";
@@ -73,11 +74,18 @@ const user = () => {
     dispatch(getUserDetails(userHandle));
   }, [dispatch]);
 
+  function renderLoading() {
+    const { loading } = content.ui;
+
+    return loading && <Loading />;
+  }
+
   console.log(content);
   const { user, screams } = content?.data;
   console.log(user);
   return (
     <>
+      {renderLoading()}
       <Background src={doodlesBackground} />
       {user === undefined ? (
         <p>dá uma segurada</p>

@@ -8,13 +8,14 @@ import { shade } from "polished";
 //import components
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import Loading from "../../components/Loading";
 
 //import assets
 import logoDog from "../../assets/images/logo-dog.png";
 
 //import redux stuff
 import { signIn } from "../../redux/actions/userActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const LoginContainer = styled.div`
   widows: 100vw;
@@ -57,7 +58,7 @@ const FormContainer = styled.form`
 `;
 
 const ButtonContainer = styled.div`
-  width: 30%;
+  width: 45%;
 `;
 
 const RedirectButton = styled(Link)`
@@ -77,6 +78,7 @@ const RedirectButton = styled(Link)`
 `;
 
 function login() {
+  const content = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -96,8 +98,15 @@ function login() {
 
     dispatch(signIn(userData, history));
   }
+
+  function renderLoading() {
+    const { loading } = content.ui;
+
+    return loading && <Loading />;
+  }
   return (
     <LoginContainer>
+      {renderLoading()}
       <ImageContainer>
         <Image src={logoDog} alt="" />
       </ImageContainer>

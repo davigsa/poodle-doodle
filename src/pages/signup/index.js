@@ -6,7 +6,7 @@ import { shade } from "polished";
 
 //import redux stuff
 import { signUp } from "../../redux/actions/userActions";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 //import assets
 import dog from "../../assets/images/dog.svg";
@@ -15,6 +15,7 @@ import logoBall from "../../assets/images/logo-ball.png";
 //import components
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import Loading from "../../components/Loading";
 
 const SignupContainer = styled.div`
   width: 100vw;
@@ -77,6 +78,7 @@ const ButtonContainer = styled.div`
 `;
 
 const signup = () => {
+  const content = useSelector((state) => state);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -105,8 +107,15 @@ const signup = () => {
     dispatch(signUp(userData, history));
   }
 
+  function renderLoading() {
+    const { loading } = content.ui;
+
+    return loading && <Loading />;
+  }
+
   return (
     <SignupContainer>
+      {renderLoading()}
       <Link to="/">
         <LogoContainer src={logoBall} alt="" />
       </Link>

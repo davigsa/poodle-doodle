@@ -1,8 +1,4 @@
-import {
-  CREATE_DOODLE,
-  DELETE_DOODLE,
-  FETCH_DOODLES,
-} from "../types/dataTypes";
+import { CREATE_DOODLE, FETCH_DOODLES } from "../types/dataTypes";
 
 const initialState = {
   doodles: [],

@@ -1,11 +1,6 @@
 import axios from "axios";
 
-import {
-  CREATE_DOODLE,
-  DELETE_DOODLE,
-  FETCH_DOODLES,
-} from "../types/dataTypes";
-import { SET_ERRORS } from "../types/uiTypes";
+import { CREATE_DOODLE, FETCH_DOODLES } from "../types/dataTypes";
 
 export function fetchDoodles() {
   return (dispatch) => {

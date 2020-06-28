@@ -77,6 +77,32 @@ const ButtonContainer = styled.div`
   }
 `;
 
+const InfoContainer = styled.div`
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: white;
+  font-size: 12.5px;
+  padding: 10px;
+  border-radius: 5px;
+  max-width: 50%;
+  background: #ff8a5c;
+
+  p {
+  }
+  blockquote {
+    margin-top: 5px;
+    li {
+      font-weight: bold;
+      margin-top: 3px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+`;
+
 const signup = () => {
   const content = useSelector((state) => state);
   const history = useHistory();
@@ -116,6 +142,21 @@ const signup = () => {
   return (
     <SignupContainer>
       {renderLoading()}
+      <InfoContainer>
+        <p>
+          Ei! Que bom ver você aqui. Infelizmente ainda estamos na nossa versão
+          1.0, ou seja, algumas coisas talvez não funcionem como deveriam,
+          espero que você entenda.{" "}
+        </p>
+        <blockquote>
+          Sendo assim, espero que você:
+          <ul>
+            <li>· Utilize um email no formato válido;</li>
+            <li>· Não utilize um nick muito grande</li>
+            <li>· Utilize uma senha com mais de 6 caracteres</li>
+          </ul>
+        </blockquote>
+      </InfoContainer>
       <Link to="/">
         <LogoContainer src={logoBall} alt="" />
       </Link>

@@ -81,7 +81,7 @@ const user = () => {
   }
 
   console.log(content);
-  const { user, screams } = content?.data;
+  const { user, screams } = content?.data.user;
   console.log(user);
   return (
     <>

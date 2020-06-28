@@ -11,12 +11,15 @@ import { SET_LOADING_FALSE, SET_LOADING_TRUE } from "../types/uiTypes";
 
 export function getUserDetails(userHandle) {
   return (dispatch) => {
+    dispatch({ type: SET_LOADING_TRUE });
     axios
       .get(`/user/${userHandle}`)
       .then((res) => {
         dispatch({ type: GET_USER_DETAILS, payload: res.data });
+        dispatch({ type: SET_LOADING_FALSE });
       })
       .catch((err) => {
+        dispatch({ type: SET_LOADING_TRUE });
         return console.log(err);
       });
   };

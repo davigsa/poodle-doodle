@@ -8,13 +8,15 @@ import {
 const initialState = {
   me: {},
   user: {},
+  Iam: {},
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
     case GET_USER_DETAILS:
       return {
-        ...action.payload,
+        ...state,
+        user: action.payload,
       };
     case SIGNIN_USER:
       return {
@@ -29,7 +31,7 @@ export default function (state = initialState, action) {
     case GET_USER_BY_ID:
       return {
         ...state,
-        user: action.payload,
+        Iam: action.payload,
       };
     default:
       return state;

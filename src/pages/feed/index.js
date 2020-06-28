@@ -74,11 +74,11 @@ const feed = () => {
 
   console.log(content.doodles);
   const doodles = content.doodles.doodles;
-  const { user } = content.data;
+  const { Iam } = content.data;
   return (
     <>
       <Background src={doodlesBackground} />
-      <Person imageUrl={user.imageUrl} userHandle={user.handle} />
+      <Person imageUrl={Iam.imageUrl} userHandle={Iam.handle} />
       <Write />
       <FeedContainer>
         <TitleContainer>

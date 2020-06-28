@@ -1,0 +1,3 @@
+export const FETCH_DOODLES = "FETCH_DOODLES";
+export const CREATE_DOODLE = "CREATE_DOODLE";
+export const DELETE_DOODLE = "DELETE_DOODLE";

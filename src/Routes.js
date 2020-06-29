@@ -10,10 +10,10 @@ import { GlobalStyle } from "./styles/globalStyles";
 import store from "./redux/store";
 
 //import pages
-import login from "./pages/login";
-import signup from "./pages/signup";
-import feed from "./pages/feed";
-import user from "./pages/user";
+import Login from "./pages/login";
+import Signup from "./pages/signup";
+import Feed from "./pages/feed";
+import User from "./pages/user";
 import Error from "./pages/404";
 
 axios.defaults.baseURL =
@@ -25,11 +25,21 @@ function Routes() {
       <BrowserRouter>
         <GlobalStyle />
         <Switch>
-          <Route exact path="/" component={login} />
-          <Route path="/signup" component={signup} />
-          <Route path="/feed" component={feed} />
-          <Route path="/user/:userHandle" component={user} />
-          <Route path="*" component={Error} />
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/feed">
+            <Feed />
+          </Route>
+          <Route path="/user/:userHandle">
+            <User />
+          </Route>
+          <Route path="*">
+            <Error />
+          </Route>
         </Switch>
       </BrowserRouter>
     </Provider>
